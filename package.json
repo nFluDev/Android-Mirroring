@@ -23,19 +23,29 @@
   "type": "commonjs",
   "main": "src/app.js",
   "scripts": {
+    "start": "electron .",
     "test": "electron .",
-    "build:mac": "electron-builder"
+    "pre-dist": "chmod +x ./scrcpy-bin/scrcpy && chmod +x ./scrcpy-bin/adb",
+    "dist": "npm run pre-dist && electron-builder"
   },
   "devDependencies": {
-    "electron": "^37.2.6"
+    "electron": "^37.2.6",
+    "electron-builder": "^26.0.12"
   },
   "build": {
     "appId": "dev.nflu.androidmirroring",
     "productName": "Android Mirroring",
     "files": [
       "src/",
-      "scrcpy-bin/",
       "package.json"
+    ],
+    "extraResources": [
+      "scrcpy-bin/",
+      "platform-tools/"
+    ],
+    "asarUnpack": [
+      "scrcpy-bin/**",
+      "platform-tools/**"
     ],
     "mac": {
       "icon": "Assets/icon.icns",

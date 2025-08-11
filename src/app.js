@@ -4,9 +4,12 @@ const path = require('path');
 
 let scrcpyProcess = null;
 let isQuitting = false;
-const scrcpyBinPath = path.join(__dirname, '..', 'scrcpy-bin');
+
+const scrcpyBinPath = path.join(process.resourcesPath, 'scrcpy-bin');
+const platformToolsPath = path.join(process.resourcesPath, 'platform-tools');
+
 const scrcpyPath = path.join(scrcpyBinPath, 'scrcpy');
-const adbPath = path.join(scrcpyBinPath, 'adb');
+const adbPath = path.join(platformToolsPath, 'adb');
 
 const cleanupAndQuit = () => {
     if (isQuitting) return;
