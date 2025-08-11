@@ -1,0 +1,45 @@
+{
+  "name": "android-mirroring",
+  "version": "0.0.1-dev.0",
+  "description": "Android Mirroring for MacOS",
+  "keywords": [
+    "Android",
+    "Mirror",
+    "macOS",
+    "mac",
+    "on",
+    "emulator"
+  ],
+  "homepage": "https://github.com/nFluDev/Android-Mirroring#readme",
+  "bugs": {
+    "url": "https://github.com/nFluDev/Android-Mirroring/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nFluDev/Android-Mirroring.git"
+  },
+  "license": "UNLICENSED",
+  "author": "nFlu",
+  "type": "commonjs",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "electron .",
+    "build:mac": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^37.2.6"
+  },
+  "build": {
+    "appId": "dev.nflu.androidmirroring",
+    "productName": "Android Mirroring",
+    "files": [
+      "src/",
+      "scrcpy-bin/",
+      "package.json"
+    ],
+    "mac": {
+      "icon": "Assets/icon.icns",
+      "target": "dmg"
+    }
+  }
+}
