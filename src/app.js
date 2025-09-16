@@ -63,6 +63,10 @@ app.on('window-all-closed', () => cleanupAndQuit());
 app.whenReady().then(() => {
     process.env.PATH = `${scrcpyBinPath}:${process.env.PATH}`;
 
+    if (process.platform === 'darwin') {
+        app.dock.hide();
+    }
+
     const adbCheck = spawn(adbPath, ['devices']);
 
     adbCheck.stdout.on('data', (data) => {
@@ -85,7 +89,7 @@ app.whenReady().then(() => {
             return;
         }
 
-        const scrcpyArgs = ['-S', '--stay-awake'];
+        const scrcpyArgs = ['-S', '--stay-awake', '--max-size', '0', '--bit-rate', '16M'];
 
         scrcpyProcess = spawn(scrcpyPath, scrcpyArgs, {
             cwd: scrcpyBinPath,
