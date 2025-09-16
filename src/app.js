@@ -89,7 +89,7 @@ app.whenReady().then(() => {
             return;
         }
 
-        const scrcpyArgs = ['-S', '--stay-awake', '--max-size', '0', '--bit-rate', '16M'];
+        const scrcpyArgs = ['-S', '--stay-awake', '--max-size', '0', '--video-bit-rate', '16M'];
 
         scrcpyProcess = spawn(scrcpyPath, scrcpyArgs, {
             cwd: scrcpyBinPath,
